@@ -28,8 +28,9 @@ A lightweight Chrome extension to instantly **lock any browser tab behind a pass
 
 📸 Demo Preview
 
-    🎥 URL : https://shorturl.at/RXtPQ
-    
+URL: https://shorturl.at/RXtPQ
+
+If it does not work, copy paste this Url - https://drive.google.com/file/d/1J8bI7mdvhHw3vHRatFbXhA_j9II3qMKz/view?usp=sharing
 
 
 💡 How to Use
