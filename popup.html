@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Tab Locker</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 16px;
+      background-color: #f8f9fa;
+      color: #212529;
+      overflow-x: hidden;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .alert {
+      font-size: 13px;
+      color: #d9534f;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 12px 0;
+    }
+
+    .tab-entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      overflow: hidden;
+    }
+
+    .tab-entry:last-child {
+      border-bottom: none;
+    }
+
+    .tab-title {
+      flex-grow: 1;
+      margin-right: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .locked {
+      color: #d9534f;
+      font-weight: 600;
+    }
+
+    .tab-list {
+      max-height: 300px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 42px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 22px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #28a745;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+<body>
+  <h3>Secure Tab Locker</h3>
+
+  <input type="password" id="oldPwd" placeholder="Current Password">
+  <input type="password" id="newPwd" placeholder="New Password">
+  <button id="updatePwd">Update</button>
+
+  <div id="alertBox" class="alert">Set a password first to enable tab locking.</div>
+
+  <hr>
+
+  <div id="tabsList" class="tab-list">Loading tabs...</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
